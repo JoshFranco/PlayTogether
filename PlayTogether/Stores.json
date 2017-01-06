@@ -1,0 +1,32 @@
+ [
+  {
+  "store" : "Titan Games & Comics",
+  "game"        : "Dungeons and Dragons",
+  "description"     : "Is a fantasy tabletop role-playing game (RPG) originally designed by Gary Gygax and Dave Arneson, and first published in 1974 by Tactical Studies Rules, Inc.",
+  "time"  : "09:00"
+  },
+  {
+  "store" : "Raven's Nest Games",
+  "game"        : "HearthStone",
+  "description"     : "Originally known as Hearthstone: Heroes of Warcraft, is a free-to-play online collectible card video game developed and published by Blizzard Entertainment.",
+  "time"  : "17:35"
+  },
+  {
+  "store" : "Dr. No's Comics & Games SuperStore",
+  "game"        : "Yu-Gi-Oh",
+  "description"     : "Is a Japanese collectible card battle game developed and published by Konami.",
+  "time"  : "18:00"
+  },
+  {
+  "store" : "Omega Cards Games",
+  "game"        : "Pokemon",
+  "description"     : "Role-playing games (RPGs) with an element of strategy, and were created by Satoshi Tajiri for the Game Boy.",
+  "time"  : "11:00"
+  },
+  {
+  "store" : "Epikos Comics, Cards & Games",
+  "game"        : "HearthStone",
+  "description"     : "Originally known as Hearthstone: Heroes of Warcraft, is a free-to-play online collectible card video game developed and published by Blizzard Entertainment.",
+  "time"  : "10:30"
+  }
+  ]
