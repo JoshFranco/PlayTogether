@@ -14,6 +14,9 @@
 		0473B6711E1ED5DC007BA360 /* PlayTogether.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0473B66F1E1ED5DC007BA360 /* PlayTogether.xcdatamodeld */; };
 		0473B6731E1ED5DC007BA360 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0473B6721E1ED5DC007BA360 /* Assets.xcassets */; };
 		0473B6761E1ED5DC007BA360 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0473B6741E1ED5DC007BA360 /* LaunchScreen.storyboard */; };
+		0474EE6F1E241E9100C02AAF /* LoginGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0474EE6D1E241E9100C02AAF /* LoginGif.gif */; };
+		0474EE711E24222F00C02AAF /* LD.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0474EE701E24222F00C02AAF /* LD.jpg */; };
+		0474EE731E24245F00C02AAF /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474EE721E24245F00C02AAF /* LogInViewController.swift */; };
 		048DAB5C1E1EDB4D00D1EA0A /* StoresTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048DAB5B1E1EDB4D00D1EA0A /* StoresTableViewController.swift */; };
 		048DAB5E1E1EDB6D00D1EA0A /* GamersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048DAB5D1E1EDB6D00D1EA0A /* GamersTableViewController.swift */; };
 		048DAB601E1EE9C000D1EA0A /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048DAB5F1E1EE9C000D1EA0A /* StoreTableViewCell.swift */; };
@@ -32,6 +35,9 @@
 		0473B6721E1ED5DC007BA360 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0473B6751E1ED5DC007BA360 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0473B6771E1ED5DC007BA360 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0474EE6D1E241E9100C02AAF /* LoginGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = LoginGif.gif; sourceTree = "<group>"; };
+		0474EE701E24222F00C02AAF /* LD.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LD.jpg; sourceTree = "<group>"; };
+		0474EE721E24245F00C02AAF /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		048DAB5B1E1EDB4D00D1EA0A /* StoresTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoresTableViewController.swift; sourceTree = "<group>"; };
 		048DAB5D1E1EDB6D00D1EA0A /* GamersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamersTableViewController.swift; sourceTree = "<group>"; };
 		048DAB5F1E1EE9C000D1EA0A /* StoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
@@ -75,11 +81,10 @@
 		0473B6671E1ED5DC007BA360 /* PlayTogether */ = {
 			isa = PBXGroup;
 			children = (
+				0474EE6A1E241DA100C02AAF /* JoshStuff */,
 				0473B6681E1ED5DC007BA360 /* AppDelegate.swift */,
 				0473B66A1E1ED5DC007BA360 /* ViewController.swift */,
-				0473B66C1E1ED5DC007BA360 /* Main.storyboard */,
 				0473B6721E1ED5DC007BA360 /* Assets.xcassets */,
-				0473B6741E1ED5DC007BA360 /* LaunchScreen.storyboard */,
 				0473B6771E1ED5DC007BA360 /* Info.plist */,
 				048DAB5B1E1EDB4D00D1EA0A /* StoresTableViewController.swift */,
 				048DAB5F1E1EE9C000D1EA0A /* StoreTableViewCell.swift */,
@@ -88,8 +93,28 @@
 				0473B66F1E1ED5DC007BA360 /* PlayTogether.xcdatamodeld */,
 				048DAB631E1EF91D00D1EA0A /* Stores.json */,
 				04596B301E1FDFFC00DB6B1D /* Gamers.plist */,
+				0474EE6B1E241DDE00C02AAF /* Storyboards */,
 			);
 			path = PlayTogether;
+			sourceTree = "<group>";
+		};
+		0474EE6A1E241DA100C02AAF /* JoshStuff */ = {
+			isa = PBXGroup;
+			children = (
+				0474EE721E24245F00C02AAF /* LogInViewController.swift */,
+				0474EE6D1E241E9100C02AAF /* LoginGif.gif */,
+				0474EE701E24222F00C02AAF /* LD.jpg */,
+			);
+			name = JoshStuff;
+			sourceTree = "<group>";
+		};
+		0474EE6B1E241DDE00C02AAF /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				0473B66C1E1ED5DC007BA360 /* Main.storyboard */,
+				0473B6741E1ED5DC007BA360 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 		2C890D4D3751449027E4512D /* Pods */ = {
@@ -176,6 +201,8 @@
 				04596B311E1FDFFC00DB6B1D /* Gamers.plist in Resources */,
 				0473B66E1E1ED5DC007BA360 /* Main.storyboard in Resources */,
 				048DAB641E1EF91D00D1EA0A /* Stores.json in Resources */,
+				0474EE711E24222F00C02AAF /* LD.jpg in Resources */,
+				0474EE6F1E241E9100C02AAF /* LoginGif.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +265,7 @@
 				048DAB5E1E1EDB6D00D1EA0A /* GamersTableViewController.swift in Sources */,
 				048DAB5C1E1EDB4D00D1EA0A /* StoresTableViewController.swift in Sources */,
 				048DAB601E1EE9C000D1EA0A /* StoreTableViewCell.swift in Sources */,
+				0474EE731E24245F00C02AAF /* LogInViewController.swift in Sources */,
 				048DAB621E1EF16800D1EA0A /* GamersTableViewCell.swift in Sources */,
 				0473B6711E1ED5DC007BA360 /* PlayTogether.xcdatamodeld in Sources */,
 				0473B6691E1ED5DC007BA360 /* AppDelegate.swift in Sources */,
