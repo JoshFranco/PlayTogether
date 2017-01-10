@@ -134,7 +134,6 @@
         <!--Stores Table View Controller-->
         <scene sceneID="R0x-WC-Rdr">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IWU-xr-2l1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="FgZ-qz-rwl" customClass="StoresTableViewController" customModule="PlayTogether" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="FI4-Sh-hlC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -194,13 +193,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="DGf-pe-Wdz">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="J7S-jg-inR">
+                        <barButtonItem key="leftBarButtonItem" title="Temp Sign-Out button" id="b3v-nU-Ykd"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="aKa-Q8-BI6">
                             <connections>
-                                <segue destination="CBt-oK-d5x" kind="show" id="Qb6-z2-zZW"/>
+                                <segue destination="CBt-oK-d5x" kind="show" id="EaN-3t-z98"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IWU-xr-2l1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3176.8000000000002" y="746.17691154422789"/>
         </scene>
