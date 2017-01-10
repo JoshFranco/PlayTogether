@@ -44,7 +44,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log-In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neR-Aq-Kod">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neR-Aq-Kod">
                                 <rect key="frame" x="147" y="319" width="80" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -62,22 +62,45 @@
                                 <color key="textColor" red="0.910601522" green="0.06092103837" blue="0.029317034990000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vby-2C-pe0">
+                                <rect key="frame" x="164" y="468" width="46" height="30"/>
+                                <state key="normal" title="Log-In">
+                                    <color key="titleColor" red="0.910601522" green="0.06092103837" blue="0.029317034990000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtPush:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cJF-r4-Bxu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rhm-oQ-IqV">
+                                <rect key="frame" x="143" y="506" width="88" height="30"/>
+                                <state key="normal" title="New User">
+                                    <color key="titleColor" red="0.910601522" green="0.06092103837" blue="0.029317034990000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="newUserButtPush:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6zm-o0-ped"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Rhm-oQ-IqV" firstAttribute="top" secondItem="Vby-2C-pe0" secondAttribute="bottom" constant="8" id="16Z-kV-b05"/>
                             <constraint firstItem="ziO-w7-ZAR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="71" id="2kQ-4P-nNB"/>
                             <constraint firstItem="QyT-xr-qlV" firstAttribute="top" secondItem="ziO-w7-ZAR" secondAttribute="bottom" constant="326" id="46r-JL-CUc"/>
                             <constraint firstItem="zzy-w4-V4D" firstAttribute="top" secondItem="Bnq-vM-OD4" secondAttribute="bottom" constant="23" id="6CN-oE-QH3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rhm-oQ-IqV" secondAttribute="trailing" constant="128" id="8ZS-Ws-VW9"/>
                             <constraint firstItem="w4l-9N-CDr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="95" id="BmG-bY-Vzs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zzy-w4-V4D" secondAttribute="trailing" constant="125" id="Dhr-EA-43U"/>
                             <constraint firstItem="neR-Aq-Kod" firstAttribute="top" secondItem="ziO-w7-ZAR" secondAttribute="bottom" constant="28" id="Gi2-90-dsf"/>
                             <constraint firstAttribute="trailing" secondItem="ziO-w7-ZAR" secondAttribute="trailing" id="H2C-ZL-6ct"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Rhm-oQ-IqV" secondAttribute="bottom" constant="131" id="LU6-YR-qyR"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MoN-TG-mob" secondAttribute="bottom" constant="207" id="OcQ-dV-Wxk"/>
+                            <constraint firstItem="Rhm-oQ-IqV" firstAttribute="top" secondItem="Vby-2C-pe0" secondAttribute="bottom" constant="8" id="Tws-J1-HfT"/>
                             <constraint firstItem="Bnq-vM-OD4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="84" id="ZB3-xk-o4p"/>
                             <constraint firstItem="ziO-w7-ZAR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZQt-Bd-uEa"/>
                             <constraint firstItem="QyT-xr-qlV" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Zne-07-7Ym"/>
                             <constraint firstItem="Bnq-vM-OD4" firstAttribute="top" secondItem="neR-Aq-Kod" secondAttribute="bottom" constant="8" id="c2a-P3-EQh"/>
                             <constraint firstItem="MoN-TG-mob" firstAttribute="top" secondItem="zzy-w4-V4D" secondAttribute="bottom" constant="8" id="de9-di-bUU"/>
+                            <constraint firstItem="Vby-2C-pe0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="148" id="eSZ-7V-i0e"/>
                             <constraint firstItem="MoN-TG-mob" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="84" id="gtk-Y6-Buc"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="QyT-xr-qlV" secondAttribute="bottom" constant="20" id="k8E-y7-qw2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Bnq-vM-OD4" secondAttribute="trailing" constant="84" id="kOt-73-BVl"/>
@@ -85,23 +108,28 @@
                             <constraint firstItem="QyT-xr-qlV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="297" id="mH0-h4-SyM"/>
                             <constraint firstItem="Bnq-vM-OD4" firstAttribute="top" secondItem="neR-Aq-Kod" secondAttribute="bottom" constant="8" id="mIe-dU-lWj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="neR-Aq-Kod" secondAttribute="trailing" constant="132" id="nbs-kv-xbE"/>
+                            <constraint firstItem="Vby-2C-pe0" firstAttribute="top" secondItem="MoN-TG-mob" secondAttribute="bottom" constant="8" id="qwY-Df-LOl"/>
                             <constraint firstItem="w4l-9N-CDr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="rsZ-Je-VAC"/>
                             <constraint firstItem="zzy-w4-V4D" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="124" id="sIk-Es-Gfc"/>
                             <constraint firstItem="MoN-TG-mob" firstAttribute="top" secondItem="zzy-w4-V4D" secondAttribute="bottom" constant="8" id="uwZ-yQ-SFH"/>
                             <constraint firstItem="zzy-w4-V4D" firstAttribute="top" secondItem="Bnq-vM-OD4" secondAttribute="bottom" constant="23" id="vM6-Rj-OWW"/>
                             <constraint firstItem="QyT-xr-qlV" firstAttribute="top" secondItem="ziO-w7-ZAR" secondAttribute="bottom" constant="326" id="vNR-bB-OUO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="w4l-9N-CDr" secondAttribute="trailing" constant="95" id="vnT-b9-dAI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Vby-2C-pe0" secondAttribute="trailing" constant="149" id="waL-uh-Bl4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MoN-TG-mob" secondAttribute="trailing" constant="84" id="yEx-Fb-MRj"/>
+                            <constraint firstItem="Rhm-oQ-IqV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="127" id="yoA-0H-upM"/>
                             <constraint firstItem="neR-Aq-Kod" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="131" id="yvl-QX-ly7"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailTextField" destination="Bnq-vM-OD4" id="7l8-AW-wKy"/>
                         <outlet property="imageView" destination="ziO-w7-ZAR" id="gj8-IG-vmI"/>
+                        <outlet property="passTextField" destination="MoN-TG-mob" id="7vt-RR-IZz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-271" y="1010"/>
+            <point key="canvasLocation" x="-271.19999999999999" y="1009.7451274362819"/>
         </scene>
         <!--Stores Table View Controller-->
         <scene sceneID="R0x-WC-Rdr">
