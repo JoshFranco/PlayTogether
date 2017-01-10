@@ -8,9 +8,14 @@
 
 import UIKit
 import SwiftGifOrigin
+import FirebaseAuth
 
 class LogInViewController: UIViewController {
     
+    // MARK: Constants
+    let loginToApp = "LoginToApp"
+    
+    // MARK: Outlets
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passTextField: UITextField!
@@ -22,6 +27,13 @@ class LogInViewController: UIViewController {
         let imageData = try! Data(contentsOf: Bundle.main.url(forResource: "LoginGif", withExtension: "gif")!)
         self.imageView.image = UIImage.gif(data: imageData)
         
+        
+        FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
+            if user != nil {
+                self.performSegue(withIdentifier: self.loginToApp, sender: nil)
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,7 +42,8 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction func loginButtPush(_ sender: UIButton) {
-        //Implement the login feature
+        FIRAuth.auth()!.signIn(withEmail: emailTextField.text!,
+                               password: passTextField.text!)
     }
     
     @IBAction func newUserButtPush(_ sender: UIButton) {
@@ -40,7 +53,23 @@ class LogInViewController: UIViewController {
         let regAction = UIAlertAction(title: "Register",
                                       style: .default)
         { action in
-            //implement the save feature here
+            let emailField = alert.textFields![0]
+            let passField = alert.textFields![1]
+            
+            print("******* email field: \(emailField.text!)")
+            print("******* pass field:  \(passField.text!)")
+            
+            FIRAuth
+                .auth()!
+                .createUser(
+                withEmail: emailField.text!,
+                password: passField.text!)
+            { user, error in
+                if error == nil {
+                    FIRAuth.auth()!.signIn(withEmail: self.emailTextField.text!,
+                                           password: self.passTextField.text!)
+                }
+            }
         }
         let cancelAction = UIAlertAction(title: "Cancel",
                                          style: .default)
