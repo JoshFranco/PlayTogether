@@ -26,7 +26,7 @@
                                 <rect key="frame" x="313" y="617" width="46" height="30"/>
                                 <state key="normal" title="Skip"/>
                                 <connections>
-                                    <segue destination="hGx-Xw-Y5c" kind="show" id="RBe-b2-UNU"/>
+                                    <segue destination="hGx-Xw-Y5c" kind="show" identifier="LoginToApp" id="RBe-b2-UNU"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ziO-w7-ZAR">
@@ -145,7 +145,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mtl-eo-CGQ" id="M0w-YX-2X5">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJM-8R-wRR">
@@ -192,7 +192,13 @@
                             <outlet property="delegate" destination="FgZ-qz-rwl" id="8SP-tN-g83"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="DGf-pe-Wdz"/>
+                    <navigationItem key="navigationItem" id="DGf-pe-Wdz">
+                        <barButtonItem key="rightBarButtonItem" title="Temp Sign-Out button" id="b3v-nU-Ykd">
+                            <connections>
+                                <action selector="tempSignOutButt:" destination="FgZ-qz-rwl" id="hZ8-FE-aue"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IWU-xr-2l1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -212,7 +218,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uic-ES-Ccb" id="2bN-p3-Ise">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="756-nY-Hod">
@@ -312,7 +318,7 @@
                         <inset key="imageInsets" minX="10" minY="13" maxX="10" maxY="5"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sHc-dZ-5Bq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sHc-dZ-5Bq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class StoresTableViewController: UITableViewController {
     
@@ -102,6 +103,14 @@ class StoresTableViewController: UITableViewController {
         return cell
     }
     
+    @IBAction func tempSignOutButt(_ sender: UIBarButtonItem) {
+        do{
+            try FIRAuth.auth()!.signOut()
+            dismiss(animated: true, completion: nil)
+        } catch{
+            print(error)
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
