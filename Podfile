@@ -6,5 +6,8 @@ target 'PlayTogether' do
 
   # Pods for PlayTogether
     pod 'SwiftGifOrigin'
+    pod 'Firebase/Core'
+    pod 'Firebase/Database'
+    pod 'Firebase/Auth'
 
 end
