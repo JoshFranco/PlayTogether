@@ -193,7 +193,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="DGf-pe-Wdz">
-                        <barButtonItem key="leftBarButtonItem" title="Temp Sign-Out button" id="b3v-nU-Ykd"/>
+                        <barButtonItem key="leftBarButtonItem" image="userSetting@1" id="b3v-nU-Ykd"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="aKa-Q8-BI6">
                             <connections>
                                 <segue destination="CBt-oK-d5x" kind="show" id="EaN-3t-z98"/>
@@ -431,5 +431,6 @@
     </scenes>
     <resources>
         <image name="location" width="50" height="50"/>
+        <image name="userSetting@1" width="25" height="25"/>
     </resources>
 </document>
