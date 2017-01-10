@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Firebase
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.statusBarStyle = .lightContent
         FIRApp.configure()
         FIRDatabase.database().persistenceEnabled = true
+        
+        // Setting Google Maps API
+        GMSPlacesClient.provideAPIKey("AIzaSyBgrRKepowCqTsxdSvO_fMRJABb2XX9nQw")
         
         return true
     }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04031F401E258CBF00DE4781 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04031F3F1E258CBF00DE4781 /* MapKit.framework */; };
+		04031F421E25920B00DE4781 /* StoresMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04031F411E25920B00DE4781 /* StoresMapViewController.swift */; };
+		04031F441E25925A00DE4781 /* StoresDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04031F431E25925A00DE4781 /* StoresDataManager.swift */; };
 		04596B311E1FDFFC00DB6B1D /* Gamers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04596B301E1FDFFC00DB6B1D /* Gamers.plist */; };
 		0473B6691E1ED5DC007BA360 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0473B6681E1ED5DC007BA360 /* AppDelegate.swift */; };
 		0473B66E1E1ED5DC007BA360 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0473B66C1E1ED5DC007BA360 /* Main.storyboard */; };
@@ -26,6 +29,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04031F3F1E258CBF00DE4781 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		04031F411E25920B00DE4781 /* StoresMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoresMapViewController.swift; sourceTree = "<group>"; };
+		04031F431E25925A00DE4781 /* StoresDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoresDataManager.swift; sourceTree = "<group>"; };
 		04596B301E1FDFFC00DB6B1D /* Gamers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Gamers.plist; sourceTree = "<group>"; };
 		0473B6651E1ED5DC007BA360 /* PlayTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0473B6681E1ED5DC007BA360 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04031F401E258CBF00DE4781 /* MapKit.framework in Frameworks */,
 				F62F40467AC46D3E1F974CB7 /* Pods_PlayTogether.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,6 +71,7 @@
 		04031F381E253C2200DE4781 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				04031F431E25925A00DE4781 /* StoresDataManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -86,6 +94,7 @@
 				0474EE721E24245F00C02AAF /* LogInViewController.swift */,
 				048DAB5B1E1EDB4D00D1EA0A /* StoresTableViewController.swift */,
 				048DAB5D1E1EDB6D00D1EA0A /* GamersTableViewController.swift */,
+				04031F411E25920B00DE4781 /* StoresMapViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -155,6 +164,7 @@
 		49B038E7376AB5F5CD7AAA48 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04031F3F1E258CBF00DE4781 /* MapKit.framework */,
 				9BCDF495AFDF741DC5520864 /* Pods_PlayTogether.framework */,
 			);
 			name = Frameworks;
@@ -200,6 +210,9 @@
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
 							};
 						};
 					};
@@ -297,8 +310,10 @@
 				048DAB5E1E1EDB6D00D1EA0A /* GamersTableViewController.swift in Sources */,
 				048DAB5C1E1EDB4D00D1EA0A /* StoresTableViewController.swift in Sources */,
 				048DAB601E1EE9C000D1EA0A /* StoreTableViewCell.swift in Sources */,
+				04031F441E25925A00DE4781 /* StoresDataManager.swift in Sources */,
 				0474EE731E24245F00C02AAF /* LogInViewController.swift in Sources */,
 				048DAB621E1EF16800D1EA0A /* GamersTableViewCell.swift in Sources */,
+				04031F421E25920B00DE4781 /* StoresMapViewController.swift in Sources */,
 				0473B6711E1ED5DC007BA360 /* PlayTogether.xcdatamodeld in Sources */,
 				0473B6691E1ED5DC007BA360 /* AppDelegate.swift in Sources */,
 			);
