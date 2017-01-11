@@ -7,13 +7,52 @@
 //
 
 import UIKit
+import CoreLocation
+import MapKit
+import GooglePlaces
 
-class StoresMapViewController: UIViewController {
+class StoresMapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+    
+    @IBOutlet weak var mapView: MKMapView!
+    var locationManager = CLLocationManager()
+    var placesClient: GMSPlacesClient!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        mapView.delegate = self
+        locationManager.delegate = self
+        
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        
+        placesClient = GMSPlacesClient.shared()
+        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
+            if let error = error {
+                print("Pick Place error: \(error.localizedDescription)")
+                return
+            }
+            
+            if let placeLikelihoodList = placeLikelihoodList {
+                for likelihood in placeLikelihoodList.likelihoods {
+                    let place = likelihood.place
+                    print("Current Place name \(place.name) at likelihood \(likelihood.likelihood)")
+                    print("Current Place address \(place.formattedAddress)")
+                    print("Current Place attributions \(place.attributions)")
+                    print("Current PlaceID \(place.placeID)")
+                }
+            }
+        })
+        
+    }
+    
+    func enableLocationManager() {
+        
+        locationManager.startUpdatingLocation()
+    }
+    
+    func disableLocationManager() {
+        
+        locationManager.stopUpdatingLocation()
     }
 
     override func didReceiveMemoryWarning() {
