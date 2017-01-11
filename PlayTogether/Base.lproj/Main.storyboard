@@ -193,7 +193,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="DGf-pe-Wdz">
-                        <barButtonItem key="leftBarButtonItem" image="userSetting@1" id="b3v-nU-Ykd"/>
+                        <barButtonItem key="leftBarButtonItem" image="userSetting@1" id="b3v-nU-Ykd">
+                            <connections>
+                                <action selector="tempSignOutButt:" destination="FgZ-qz-rwl" id="aep-9V-x5q"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="aKa-Q8-BI6">
                             <connections>
                                 <segue destination="CBt-oK-d5x" kind="show" id="EaN-3t-z98"/>

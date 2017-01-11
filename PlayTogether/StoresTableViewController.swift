@@ -110,6 +110,7 @@ class StoresTableViewController: UITableViewController {
         } catch{
             print(error)
         }
+        
     }
 
     /*
