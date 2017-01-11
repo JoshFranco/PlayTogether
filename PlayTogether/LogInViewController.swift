@@ -12,16 +12,18 @@ import FirebaseAuth
 
 class LogInViewController: UIViewController {
     
-    // MARK: Constants
+    // MARK: - Constants
     let loginToApp = "LoginToApp"
     
-    // MARK: Outlets
+    // MARK: - Outlets
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passTextField: UITextField!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        passTextField.isSecureTextEntry = true
         
         //Gif in the login menu
         let imageData = try! Data(contentsOf: Bundle.main.url(forResource: "LoginGif", withExtension: "gif")!)
@@ -55,9 +57,6 @@ class LogInViewController: UIViewController {
         { action in
             let emailField = alert.textFields![0]
             let passField = alert.textFields![1]
-            
-            print("******* email field: \(emailField.text!)")
-            print("******* pass field:  \(passField.text!)")
             
             FIRAuth
                 .auth()!
