@@ -7,47 +7,43 @@
 //
 
 import UIKit
+import FirebaseAuth
 import FirebaseDatabase
 
 class LookingForGameTableViewController: UITableViewController {
     
     // MARK: - Properties
     var gamerArray: [(String, String, String, String)] = []
+    var objs: [GameObj] = []
     let ref = FIRDatabase.database().reference(withPath: "game-objs")
     let usersRef = FIRDatabase.database().reference(withPath: "online")
-    var callUser: User!
+    var user: User!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let gamersPath = Bundle.main.path(forResource: "Gamers", ofType: "plist"){
+        //set up a observe so we can read from firebase
+        ref.queryOrdered(byChild: "game").observe(.value, with:
+        { snapshot in
+            var newObjs: [GameObj] = []
             
-            let gamersDict = NSDictionary(contentsOfFile: gamersPath)
-            
-            if let gamers = gamersDict?.object(forKey: "Gamers") as? [[String : String]]{
-                for gamer in gamers {
-                    
-                    guard let name = gamer["Name"] else{
-                        continue
-                    }
-                    
-                    guard let game = gamer["Game"] else {
-                        continue
-                    }
-                    
-                    guard let store = gamer["Store"] else{
-                        continue
-                    }
-                    
-                    guard let time = gamer["Time"] else{
-                        continue
-                    }
-                    
-                    gamerArray.append((name, game, store, time))
-                }
+            for item in snapshot.children {
+                let gameObj = GameObj(snapshot: item as! FIRDataSnapshot)
+                newObjs.append(gameObj)
             }
-            
-            
+            self.objs = newObjs
+            self.tableView.reloadData()
+        })
+        
+ 
+        //set up user so that the email can be rerived from the firebase
+        FIRAuth.auth()!.addStateDidChangeListener{
+                auth, user in
+            guard let user = user else { return }
+            self.user = User(authData: user)
+            let currentUserRef = self.usersRef.child(self.user.uid)
+            currentUserRef.setValue(self.user.email)
+            currentUserRef.onDisconnectRemoveValue()
         }
         
     }
@@ -70,11 +66,13 @@ class LookingForGameTableViewController: UITableViewController {
             let storeField = alert.textFields![2]
             let tiemField = alert.textFields![3]
             
+            print(self.user.email)
+            
             let gameObj = GameObj(userName: userNameField.text!,
                                   game: gameField.text!,
                                   store: storeField.text!,
                                   time: tiemField.text!,
-                                  addedByUser: "nil")
+                                  addedByUser: self.user.email)
             let gameObjRef = self.ref.child((userNameField.text?.lowercased())!)
             gameObjRef.setValue(gameObj.toAnyObject())
             
@@ -107,7 +105,7 @@ class LookingForGameTableViewController: UITableViewController {
 extension LookingForGameTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gamerArray.count
+        return objs.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -115,17 +113,14 @@ extension LookingForGameTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LFGTableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LFGTableViewCell", for: indexPath) as! GamersTableViewCell
+        let gameObj = objs[indexPath.row]
         
-        if let infoCell = cell as? GamersTableViewCell {
-            let gamer = gamerArray[indexPath.row]
-            infoCell.nameLabel.text = gamer.0
-            infoCell.gameLabel.text = gamer.1
-            infoCell.storeLabel.text = gamer.2
-            infoCell.timeLabel.text = gamer.3
-            
-            return infoCell
-        }
+        cell.gameLabel?.text = gameObj.game
+        cell.nameLabel?.text = gameObj.userName
+        cell.storeLabel?.text = gameObj.store
+        cell.timeLabel?.text = gameObj.time
+        
         return cell
     }
     
