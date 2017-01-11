@@ -22,8 +22,10 @@ class StoresMapViewController: UIViewController, CLLocationManagerDelegate, MKMa
         mapView.delegate = self
         locationManager.delegate = self
         
+        
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
+        checkLocationAuthorizationStatus()
         
         placesClient = GMSPlacesClient.shared()
         placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
@@ -45,14 +47,24 @@ class StoresMapViewController: UIViewController, CLLocationManagerDelegate, MKMa
         
     }
     
-    func enableLocationManager() {
-        
-        locationManager.startUpdatingLocation()
-    }
-    
-    func disableLocationManager() {
-        
-        locationManager.stopUpdatingLocation()
+    func checkLocationAuthorizationStatus(){
+        if CLLocationManager.authorizationStatus() == .authorizedAlways{
+            mapView.showsUserLocation = true
+            locationManager.startMonitoringSignificantLocationChanges()
+            locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+            
+            if let loc = locationManager.location{
+                let point = loc.coordinate
+                mapView.setCenter(point, animated: true)
+                
+                let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+                let region = MKCoordinateRegion(center: point, span: span)
+                mapView.setRegion(region, animated: true)
+            }
+            
+        } else{
+            locationManager.requestAlwaysAuthorization()
+        }
     }
 
     override func didReceiveMemoryWarning() {
