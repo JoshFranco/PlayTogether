@@ -22,6 +22,7 @@
 		0474EE9C1E267EAB00C02AAF /* jack@origin.png in Resources */ = {isa = PBXBuildFile; fileRef = 0474EE9B1E267EAB00C02AAF /* jack@origin.png */; };
 		0474EE9E1E26899D00C02AAF /* GameObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474EE9D1E26899D00C02AAF /* GameObj.swift */; };
 		0474EEA01E269FA900C02AAF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474EE9F1E269FA900C02AAF /* User.swift */; };
+		0474EEA21E26EA4300C02AAF /* DetailedGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474EEA11E26EA4300C02AAF /* DetailedGameViewController.swift */; };
 		048DAB5C1E1EDB4D00D1EA0A /* StoresTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048DAB5B1E1EDB4D00D1EA0A /* StoresTableViewController.swift */; };
 		048DAB5E1E1EDB6D00D1EA0A /* LookingForGameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048DAB5D1E1EDB6D00D1EA0A /* LookingForGameTableViewController.swift */; };
 		048DAB601E1EE9C000D1EA0A /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048DAB5F1E1EE9C000D1EA0A /* StoreTableViewCell.swift */; };
@@ -49,6 +50,7 @@
 		0474EE9B1E267EAB00C02AAF /* jack@origin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jack@origin.png"; sourceTree = "<group>"; };
 		0474EE9D1E26899D00C02AAF /* GameObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObj.swift; sourceTree = "<group>"; };
 		0474EE9F1E269FA900C02AAF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0474EEA11E26EA4300C02AAF /* DetailedGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedGameViewController.swift; sourceTree = "<group>"; };
 		048DAB5B1E1EDB4D00D1EA0A /* StoresTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoresTableViewController.swift; sourceTree = "<group>"; };
 		048DAB5D1E1EDB6D00D1EA0A /* LookingForGameTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookingForGameTableViewController.swift; sourceTree = "<group>"; };
 		048DAB5F1E1EE9C000D1EA0A /* StoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
@@ -97,10 +99,11 @@
 			isa = PBXGroup;
 			children = (
 				0473B6681E1ED5DC007BA360 /* AppDelegate.swift */,
-				0474EE721E24245F00C02AAF /* LogInViewController.swift */,
 				048DAB5B1E1EDB4D00D1EA0A /* StoresTableViewController.swift */,
-				048DAB5D1E1EDB6D00D1EA0A /* LookingForGameTableViewController.swift */,
 				04031F411E25920B00DE4781 /* StoresMapViewController.swift */,
+				0474EE721E24245F00C02AAF /* LogInViewController.swift */,
+				048DAB5D1E1EDB6D00D1EA0A /* LookingForGameTableViewController.swift */,
+				0474EEA11E26EA4300C02AAF /* DetailedGameViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0474EEA21E26EA4300C02AAF /* DetailedGameViewController.swift in Sources */,
 				048DAB5E1E1EDB6D00D1EA0A /* LookingForGameTableViewController.swift in Sources */,
 				0474EE9E1E26899D00C02AAF /* GameObj.swift in Sources */,
 				048DAB5C1E1EDB4D00D1EA0A /* StoresTableViewController.swift in Sources */,

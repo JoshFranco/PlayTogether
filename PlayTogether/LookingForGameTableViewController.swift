@@ -22,6 +22,9 @@ class LookingForGameTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        //self.tabBarController?.tabBar.isHidden = false
+        
         //set up a observe so we can read from firebase
         ref.queryOrdered(byChild: "game").observe(.value, with:
         { snapshot in
@@ -124,4 +127,7 @@ extension LookingForGameTableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //programmatically segue to detailed game vc
+    }
 }

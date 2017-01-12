@@ -395,6 +395,24 @@
             </objects>
             <point key="canvasLocation" x="3176.8000000000002" y="1533.2833583208396"/>
         </scene>
+        <!--Detailed Game View Controller-->
+        <scene sceneID="TnA-nr-cGf">
+            <objects>
+                <viewController id="5kM-hF-sGc" customClass="DetailedGameViewController" customModule="PlayTogether" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gw8-ad-AC2"/>
+                        <viewControllerLayoutGuide type="bottom" id="hVQ-vo-34e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FvT-io-COj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UKP-JB-QRx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4284" y="1533"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="GLQ-sG-lIe">
             <objects>
@@ -420,7 +438,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Km-Bd-y4f" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="search" id="F4F-ad-bMR"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hO7-XQ-9dp">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hO7-XQ-9dp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -441,7 +459,7 @@
                         <inset key="imageInsets" minX="10" minY="13" maxX="10" maxY="5"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sHc-dZ-5Bq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sHc-dZ-5Bq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
