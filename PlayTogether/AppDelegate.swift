@@ -23,9 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         FIRDatabase.database().persistenceEnabled = true
         
-        // Setting Google Maps API
-        GMSPlacesClient.provideAPIKey("AIzaSyBgrRKepowCqTsxdSvO_fMRJABb2XX9nQw")
-        
         return true
     }
 
