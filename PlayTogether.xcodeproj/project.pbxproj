@@ -10,6 +10,8 @@
 		04031F401E258CBF00DE4781 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04031F3F1E258CBF00DE4781 /* MapKit.framework */; };
 		04031F421E25920B00DE4781 /* StoresMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04031F411E25920B00DE4781 /* StoresMapViewController.swift */; };
 		04031F441E25925A00DE4781 /* StoresDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04031F431E25925A00DE4781 /* StoresDataManager.swift */; };
+		04031F721E26EF9500DE4781 /* Locations.json in Resources */ = {isa = PBXBuildFile; fileRef = 04031F711E26EF9500DE4781 /* Locations.json */; };
+		04031F741E26FEF900DE4781 /* AddStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04031F731E26FEF900DE4781 /* AddStoreViewController.swift */; };
 		04596B311E1FDFFC00DB6B1D /* Gamers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04596B301E1FDFFC00DB6B1D /* Gamers.plist */; };
 		0473B6691E1ED5DC007BA360 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0473B6681E1ED5DC007BA360 /* AppDelegate.swift */; };
 		0473B66E1E1ED5DC007BA360 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0473B66C1E1ED5DC007BA360 /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 		04031F3F1E258CBF00DE4781 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		04031F411E25920B00DE4781 /* StoresMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoresMapViewController.swift; sourceTree = "<group>"; };
 		04031F431E25925A00DE4781 /* StoresDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoresDataManager.swift; sourceTree = "<group>"; };
+		04031F711E26EF9500DE4781 /* Locations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Locations.json; sourceTree = "<group>"; };
+		04031F731E26FEF900DE4781 /* AddStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStoreViewController.swift; sourceTree = "<group>"; };
 		04596B301E1FDFFC00DB6B1D /* Gamers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Gamers.plist; sourceTree = "<group>"; };
 		0473B6651E1ED5DC007BA360 /* PlayTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0473B6681E1ED5DC007BA360 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 		0474EE6A1E241DA100C02AAF /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				04031F711E26EF9500DE4781 /* Locations.json */,
 				048DAB631E1EF91D00D1EA0A /* Stores.json */,
 				04596B301E1FDFFC00DB6B1D /* Gamers.plist */,
 				0474EE981E254D4C00C02AAF /* GoogleService-Info.plist */,
@@ -256,6 +261,7 @@
 				0473B6731E1ED5DC007BA360 /* Assets.xcassets in Resources */,
 				0474EE9C1E267EAB00C02AAF /* jack@origin.png in Resources */,
 				04596B311E1FDFFC00DB6B1D /* Gamers.plist in Resources */,
+				04031F721E26EF9500DE4781 /* Locations.json in Resources */,
 				0473B66E1E1ED5DC007BA360 /* Main.storyboard in Resources */,
 				048DAB641E1EF91D00D1EA0A /* Stores.json in Resources */,
 				0474EE6F1E241E9100C02AAF /* LoginGif.gif in Resources */,

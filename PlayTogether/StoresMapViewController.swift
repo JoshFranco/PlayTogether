@@ -9,41 +9,32 @@
 import UIKit
 import CoreLocation
 import MapKit
-import GooglePlaces
+
+class StoreLocation: NSObject,MKAnnotation {
+    
+    var title: String?
+    var coordinate: CLLocationCoordinate2D
+    
+    init(title: String, coordinate: CLLocationCoordinate2D) {
+        self.title = title
+        self.coordinate = coordinate
+    }
+    
+}
 
 class StoresMapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
-    var placesClient: GMSPlacesClient!
+    var storeLocations: [StoreLocation] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
         locationManager.delegate = self
         
-        
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
+        StoresDataManager.getLocation(closure: { locations in mapView.addAnnotations(locations)})
         checkLocationAuthorizationStatus()
-        
-        placesClient = GMSPlacesClient.shared()
-        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
-            if let error = error {
-                print("Pick Place error: \(error.localizedDescription)")
-                return
-            }
-            
-            if let placeLikelihoodList = placeLikelihoodList {
-                for likelihood in placeLikelihoodList.likelihoods {
-                    let place = likelihood.place
-                    print("Current Place name \(place.name) at likelihood \(likelihood.likelihood)")
-                    print("Current Place address \(place.formattedAddress)")
-                    print("Current Place attributions \(place.attributions)")
-                    print("Current PlaceID \(place.placeID)")
-                }
-            }
-        })
         
     }
     
@@ -57,7 +48,7 @@ class StoresMapViewController: UIViewController, CLLocationManagerDelegate, MKMa
                 let point = loc.coordinate
                 mapView.setCenter(point, animated: true)
                 
-                let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+                let span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
                 let region = MKCoordinateRegion(center: point, span: span)
                 mapView.setRegion(region, animated: true)
             }
@@ -66,10 +57,46 @@ class StoresMapViewController: UIViewController, CLLocationManagerDelegate, MKMa
             locationManager.requestAlwaysAuthorization()
         }
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let currentLocation = locations.first {
+            let point = currentLocation.coordinate
+            mapView.setCenter(point, animated: true)
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let annotation = annotation as? StoreLocation{
+            let identifier = "pin"
+            var view: MKPinAnnotationView
+            
+            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView{
+                dequeuedView.annotation = annotation
+                view = dequeuedView
+            } else {
+                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: -5, y: 5)
+                view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+            }
+            return view
+        }
+        return nil
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if let annotation = view.annotation as? StoreLocation{
+            let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDefault]
+            let placeMark = MKPlacemark(coordinate: annotation.coordinate, addressDictionary: nil)
+            let mapItem = MKMapItem(placemark: placeMark)
+            
+            mapItem.openInMaps(launchOptions: launchOptions)
+        }
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 
