@@ -505,11 +505,11 @@
             </objects>
             <point key="canvasLocation" x="922" y="1010"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Event Locations-->
         <scene sceneID="1tz-Bb-oO5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Km-Bd-y4f" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="F4F-ad-bMR"/>
+                    <tabBarItem key="tabBarItem" title="Event Locations" image="imageStore@1" id="F4F-ad-bMR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hO7-XQ-9dp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -524,13 +524,11 @@
             </objects>
             <point key="canvasLocation" x="2237.5999999999999" y="746.17691154422789"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Ongoing Events-->
         <scene sceneID="d6L-9s-KLD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="irG-AC-Aiu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="MWg-v1-kJo">
-                        <inset key="imageInsets" minX="10" minY="13" maxX="10" maxY="5"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Ongoing Events" image="imageGamers@1x" id="MWg-v1-kJo"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sHc-dZ-5Bq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -548,6 +546,8 @@
     </scenes>
     <resources>
         <image name="fbIcon@1" width="35" height="35"/>
+        <image name="imageGamers@1x" width="25" height="25"/>
+        <image name="imageStore@1" width="25" height="25"/>
         <image name="location" width="50" height="50"/>
         <image name="logOffIcon@1" width="25" height="28"/>
         <image name="twIcon@1" width="25" height="25"/>
