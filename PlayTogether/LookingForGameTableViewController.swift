@@ -148,6 +148,7 @@ extension LookingForGameTableViewController {
         cell.nameLabel?.text = gameObj.userName
         cell.storeLabel?.text = gameObj.store
         cell.timeLabel?.text = gameObj.time
+        cell.countLabel?.text = String(gameObj.playerNum)
         
         return cell
     }

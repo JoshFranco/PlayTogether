@@ -14,6 +14,7 @@ class GamersTableViewCell: UITableViewCell {
     @IBOutlet weak var gameLabel: UILabel!
     @IBOutlet weak var storeLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var countLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
