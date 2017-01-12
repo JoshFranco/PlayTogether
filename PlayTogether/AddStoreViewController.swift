@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Social
 import FirebaseAuth
 import FirebaseDatabase
 
@@ -74,6 +75,66 @@ class AddStoreViewController: UIViewController {
             gameObjRef.setValue(gameObj.toAnyObject())
         }
     }
+    
+    @IBAction func fbPost(_ sender: UIButton) {
+        
+        if (storeLabel.text == "" || gameLabel.text == "") {
+            let alert = UIAlertController(title: "Post Error", message: "Please enter the Store and Game values", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        else{
+            if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook){
+                let fbController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+                fbController?.setInitialText("I will be playing " + gameLabel.text! + " at " + storeLabel.text!)
+                present(fbController!, animated: true, completion: nil)
+            } else{
+                let alert = UIAlertController(title: "Accounts", message: "Please login to your facebook account", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {
+                    (UIAlertAction) in
+                    let settingsURL = URL(string: UIApplicationOpenSettingsURLString)
+                    if let url = settingsURL {
+                        if UIApplication.shared.canOpenURL(url) {
+                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                        }
+                    }
+                    
+                }))
+                present(alert, animated: true, completion: nil)
+            }
+        }
+        
+    }
+    
+    @IBAction func twPost(_ sender: UIButton) {
+        if (storeLabel.text == "" || gameLabel.text == "") {
+            let alert = UIAlertController(title: "Post Error", message: "Please enter the Store and Game values", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        else {
+            if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter){
+                let tweetController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+                tweetController?.setInitialText("I will be playing " + gameLabel.text! + " at " + storeLabel.text!)
+                present(tweetController!, animated: true, completion: nil)
+            } else{
+                let alert = UIAlertController(title: "Accounts", message: "Please login to your twitter account", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {
+                    (UIAlertAction) in
+                    let settingsURL = URL(string: UIApplicationOpenSettingsURLString)
+                    if let url = settingsURL {
+                        if UIApplication.shared.canOpenURL(url) {
+                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                        }
+                    }
+                    
+                }))
+                present(alert, animated: true, completion: nil)
+            }
+        }
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

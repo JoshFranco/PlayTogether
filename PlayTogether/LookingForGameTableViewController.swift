@@ -55,6 +55,30 @@ class LookingForGameTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    @IBAction func signOutButton(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Log Out",
+                                      message: "Are you sure you want to log out?",
+                                      preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Yes",
+                                     style: .default)
+        { action in
+            do{
+                try FIRAuth.auth()!.signOut()
+                self.dismiss(animated: true, completion: nil)
+            } catch{
+                print(error)
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .default)
+        
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
     
     @IBAction func tempAddToDatabase(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Temp add to database",
