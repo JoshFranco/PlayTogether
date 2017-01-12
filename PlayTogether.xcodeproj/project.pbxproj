@@ -12,7 +12,6 @@
 		04031F441E25925A00DE4781 /* StoresDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04031F431E25925A00DE4781 /* StoresDataManager.swift */; };
 		04031F721E26EF9500DE4781 /* Locations.json in Resources */ = {isa = PBXBuildFile; fileRef = 04031F711E26EF9500DE4781 /* Locations.json */; };
 		04031F741E26FEF900DE4781 /* AddStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04031F731E26FEF900DE4781 /* AddStoreViewController.swift */; };
-		04596B311E1FDFFC00DB6B1D /* Gamers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04596B301E1FDFFC00DB6B1D /* Gamers.plist */; };
 		0473B6691E1ED5DC007BA360 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0473B6681E1ED5DC007BA360 /* AppDelegate.swift */; };
 		0473B66E1E1ED5DC007BA360 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0473B66C1E1ED5DC007BA360 /* Main.storyboard */; };
 		0473B6711E1ED5DC007BA360 /* PlayTogether.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0473B66F1E1ED5DC007BA360 /* PlayTogether.xcdatamodeld */; };
@@ -29,7 +28,6 @@
 		048DAB5E1E1EDB6D00D1EA0A /* LookingForGameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048DAB5D1E1EDB6D00D1EA0A /* LookingForGameTableViewController.swift */; };
 		048DAB601E1EE9C000D1EA0A /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048DAB5F1E1EE9C000D1EA0A /* StoreTableViewCell.swift */; };
 		048DAB621E1EF16800D1EA0A /* GamersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048DAB611E1EF16800D1EA0A /* GamersTableViewCell.swift */; };
-		048DAB641E1EF91D00D1EA0A /* Stores.json in Resources */ = {isa = PBXBuildFile; fileRef = 048DAB631E1EF91D00D1EA0A /* Stores.json */; };
 		F62F40467AC46D3E1F974CB7 /* Pods_PlayTogether.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCDF495AFDF741DC5520864 /* Pods_PlayTogether.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,7 +37,6 @@
 		04031F431E25925A00DE4781 /* StoresDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoresDataManager.swift; sourceTree = "<group>"; };
 		04031F711E26EF9500DE4781 /* Locations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Locations.json; sourceTree = "<group>"; };
 		04031F731E26FEF900DE4781 /* AddStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStoreViewController.swift; sourceTree = "<group>"; };
-		04596B301E1FDFFC00DB6B1D /* Gamers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Gamers.plist; sourceTree = "<group>"; };
 		0473B6651E1ED5DC007BA360 /* PlayTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0473B6681E1ED5DC007BA360 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0473B66D1E1ED5DC007BA360 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -59,7 +56,6 @@
 		048DAB5D1E1EDB6D00D1EA0A /* LookingForGameTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookingForGameTableViewController.swift; sourceTree = "<group>"; };
 		048DAB5F1E1EE9C000D1EA0A /* StoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
 		048DAB611E1EF16800D1EA0A /* GamersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamersTableViewCell.swift; sourceTree = "<group>"; };
-		048DAB631E1EF91D00D1EA0A /* Stores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Stores.json; sourceTree = "<group>"; };
 		37820384F16B9F5C539A0192 /* Pods-PlayTogether.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayTogether.release.xcconfig"; path = "Pods/Target Support Files/Pods-PlayTogether/Pods-PlayTogether.release.xcconfig"; sourceTree = "<group>"; };
 		9BCDF495AFDF741DC5520864 /* Pods_PlayTogether.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlayTogether.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA8458BB54086A094CD151B8 /* Pods-PlayTogether.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayTogether.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlayTogether/Pods-PlayTogether.debug.xcconfig"; sourceTree = "<group>"; };
@@ -151,8 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				04031F711E26EF9500DE4781 /* Locations.json */,
-				048DAB631E1EF91D00D1EA0A /* Stores.json */,
-				04596B301E1FDFFC00DB6B1D /* Gamers.plist */,
 				0474EE981E254D4C00C02AAF /* GoogleService-Info.plist */,
 				0474EE6B1E241DDE00C02AAF /* Images */,
 			);
@@ -261,10 +255,8 @@
 				0474EE991E254D4C00C02AAF /* GoogleService-Info.plist in Resources */,
 				0473B6731E1ED5DC007BA360 /* Assets.xcassets in Resources */,
 				0474EE9C1E267EAB00C02AAF /* jack@origin.png in Resources */,
-				04596B311E1FDFFC00DB6B1D /* Gamers.plist in Resources */,
 				04031F721E26EF9500DE4781 /* Locations.json in Resources */,
 				0473B66E1E1ED5DC007BA360 /* Main.storyboard in Resources */,
-				048DAB641E1EF91D00D1EA0A /* Stores.json in Resources */,
 				0474EE6F1E241E9100C02AAF /* LoginGif.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

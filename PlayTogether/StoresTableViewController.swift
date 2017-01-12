@@ -8,57 +8,41 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class StoresTableViewController: UITableViewController {
     
-    var storeArray: [(String, String, String, String)] = []
+    // MARK: - Properties
+    var objs: [GameObj] = []
+    let ref = FIRDatabase.database().reference(withPath: "game-objs")
+    let usersRef = FIRDatabase.database().reference(withPath: "online")
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        if let storesPath = Bundle.main.path(forResource: "Stores",
-                                       ofType: "json") {
-            
-            do {
-                let data = try Data(contentsOf:
-                    URL(fileURLWithPath: storesPath),
-                                    options: NSData.ReadingOptions.mappedIfSafe)
+        //set up a observe so we can read from firebase
+        ref.queryOrdered(byChild: "game").observe(.value, with:
+            { snapshot in
+                var newObjs: [GameObj] = []
                 
-                let storeData = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
-                
-                guard let storeDict = storeData as? [[String: String]] else{
-                    return
+                for item in snapshot.children {
+                    let gameObj = GameObj(snapshot: item as! FIRDataSnapshot)
+                    newObjs.append(gameObj)
                 }
-                for store in storeDict{
-                    
-                    guard let storeName = store["store"] else{
-                        continue
-                    }
-                    
-                    guard let game = store["game"] else {
-                        continue
-                    }
-                    
-                    guard let desc = store["description"] else{
-                        continue
-                    }
-                    
-                    guard let meetTime = store["time"] else{
-                        continue
-                    }
-                    
-                    storeArray.append(storeName, game, desc,meetTime)
-                    }
-            }
-            catch {
-                return
-            }
+                self.objs = newObjs
+                self.tableView.reloadData()
+        })
+        
+        
+        //set up user so that the email can be rerived from the firebase
+        FIRAuth.auth()!.addStateDidChangeListener{
+            auth, user in
+            guard let user = user else { return }
+            self.user = User(authData: user)
+            let currentUserRef = self.usersRef.child(self.user.uid)
+            currentUserRef.setValue(self.user.email)
+            currentUserRef.onDisconnectRemoveValue()
         }
         
     }
@@ -77,11 +61,11 @@ class StoresTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return storeArray.count
+        return objs.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 115
     }
     
 
@@ -90,11 +74,10 @@ class StoresTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StoreTableViewCell", for: indexPath)
 
         if let infoCell = cell as? StoreTableViewCell {
-            let store = storeArray[indexPath.row]
-            infoCell.storeLabel.text = store.0
-            infoCell.gameLabel.text = store.1
-            infoCell.descLabel.text = store.2
-            infoCell.timeLabel.text = store.3
+            let gameObj = objs[indexPath.row]
+            infoCell.storeLabel.text = gameObj.store
+            infoCell.gameLabel.text = gameObj.game
+            infoCell.timeLabel.text = gameObj.time
             
             return infoCell
             
