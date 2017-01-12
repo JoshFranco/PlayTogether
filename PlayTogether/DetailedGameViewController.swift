@@ -16,6 +16,7 @@ class DetailedGameViewController: UIViewController {
     @IBOutlet weak var storeLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var acceptButt: UIButton!
+    @IBOutlet weak var deleteButt: UIButton!
     
     let ref = FIRDatabase.database().reference(withPath: "game-objs")
     let usersRef = FIRDatabase.database().reference(withPath: "online")
@@ -38,6 +39,10 @@ class DetailedGameViewController: UIViewController {
         listOfPlayers = (gameObj?.playerList.components(separatedBy: "|"))!
         
         hasAccepted()
+        
+        if gameObj?.addedByUser != email{
+            deleteButt.isHidden = true
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,7 +61,12 @@ class DetailedGameViewController: UIViewController {
             
         acceptButt.setTitle("Game Accepted =D", for: .normal)
         acceptButt.isEnabled = false
-        
+    }
+    
+    @IBAction func deleteButt(_ sender: UIButton) {
+        print("DELETE")
+        gameObj?.ref?.removeValue()
+        navigationController?.popViewController(animated: true)
     }
     
     func hasAccepted(){

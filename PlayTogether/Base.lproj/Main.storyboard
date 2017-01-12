@@ -486,11 +486,22 @@
                                     <action selector="acceptButt:" destination="5kM-hF-sGc" eventType="touchUpInside" id="f9f-FW-ZUT"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nk-bL-xiy">
+                                <rect key="frame" x="240" y="115" width="90" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete Post">
+                                    <color key="titleColor" red="0.910601522" green="0.06092103837" blue="0.029317034990000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteButt:" destination="5kM-hF-sGc" eventType="touchUpInside" id="DFw-iz-qfd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="acceptButt" destination="qYf-cZ-LGX" id="xrU-UM-zam"/>
+                        <outlet property="deleteButt" destination="6nk-bL-xiy" id="eyJ-9k-nbT"/>
                         <outlet property="gameLabel" destination="Ovh-uf-y2B" id="PVy-Kn-05S"/>
                         <outlet property="storeLabel" destination="he0-7t-bDS" id="86I-qc-j1x"/>
                         <outlet property="timeLabel" destination="bKC-Gg-qi5" id="1uU-op-MY1"/>
