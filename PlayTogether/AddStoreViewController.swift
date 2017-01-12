@@ -7,24 +7,44 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class AddStoreViewController: UIViewController {
 
+    @IBOutlet weak var userNameLabel: UITextField!
     @IBOutlet weak var storeLabel: UITextField!
     @IBOutlet weak var gameLabel: UITextField!
-    @IBOutlet weak var descLabel: UITextField!
     @IBOutlet weak var timeLabel: UITextField!
+    
+    // MARK: - Properties
+    let ref = FIRDatabase.database().reference(withPath: "game-objs")
+    let usersRef = FIRDatabase.database().reference(withPath: "online")
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        //set up user so that the email can be rerived from the firebase
+        FIRAuth.auth()!.addStateDidChangeListener{
+            auth, user in
+            guard let user = user else { return }
+            self.user = User(authData: user)
+            let currentUserRef = self.usersRef.child(self.user.uid)
+            currentUserRef.setValue(self.user.email)
+            currentUserRef.onDisconnectRemoveValue()
+        }
     }
 
     @IBAction func addStoreButton(_ sender: UIButton) {
         
-        if (storeLabel.text == "" && gameLabel.text == "" && timeLabel.text == "") {
+        if (userNameLabel.text == "" && storeLabel.text == "" && gameLabel.text == "" && timeLabel.text == "") {
             let alert = UIAlertController(title: "Post Error", message: "Please enter the mandatory values", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        else if (userNameLabel.text == ""){
+            let alert = UIAlertController(title: "Post Error", message: "Please enter the user name", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
@@ -44,7 +64,14 @@ class AddStoreViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         else{
-            // Add stores into the DB
+            
+            let gameObj = GameObj(userName: userNameLabel.text!,
+                                  game: gameLabel.text!,
+                                  store: storeLabel.text!,
+                                  time: timeLabel.text!,
+                                  addedByUser: self.user.email)
+            let gameObjRef = self.ref.child((userNameLabel.text?.lowercased())!)
+            gameObjRef.setValue(gameObj.toAnyObject())
         }
     }
     override func didReceiveMemoryWarning() {

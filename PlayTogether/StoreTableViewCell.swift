@@ -12,7 +12,6 @@ class StoreTableViewCell: UITableViewCell {
     
     @IBOutlet weak var storeLabel: UILabel!
     @IBOutlet weak var gameLabel: UILabel!
-    @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
     override func awakeFromNib() {
