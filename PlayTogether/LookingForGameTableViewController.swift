@@ -13,7 +13,6 @@ import FirebaseDatabase
 class LookingForGameTableViewController: UITableViewController {
     
     // MARK: - Properties
-    var gamerArray: [(String, String, String, String)] = []
     var objs: [GameObj] = []
     let ref = FIRDatabase.database().reference(withPath: "game-objs")
     let usersRef = FIRDatabase.database().reference(withPath: "online")
@@ -21,9 +20,6 @@ class LookingForGameTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        //self.tabBarController?.tabBar.isHidden = false
         
         //set up a observe so we can read from firebase
         ref.queryOrdered(byChild: "game").observe(.value, with:
@@ -49,6 +45,10 @@ class LookingForGameTableViewController: UITableViewController {
             currentUserRef.onDisconnectRemoveValue()
         }
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -128,6 +128,17 @@ extension LookingForGameTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //programmatically segue to detailed game vc
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "Details") as? DetailedGameViewController {
+            let gameObj = objs[indexPath.row]
+            let nav = self.navigationController
+            //if let nav = self.navigationController{}
+            
+            vc.game = gameObj.game
+            vc.user = gameObj.userName
+            vc.store = gameObj.store
+            vc.time = gameObj.time
+            
+            nav?.pushViewController(vc, animated:true)
+        }
     }
 }

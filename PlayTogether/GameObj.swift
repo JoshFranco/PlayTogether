@@ -21,9 +21,10 @@ struct GameObj {
     let game: String // game title
     let store: String //store location
     let time: String //time of game
+    let playerNum: Int
     
     
-    init(userName: String, game: String, store: String, time: String, addedByUser: String, key: String = "") {
+    init(userName: String, game: String, store: String, time: String, addedByUser: String, key: String = "", playerNum: Int = 0) {
         self.key = key
         
         //The game data
@@ -32,6 +33,7 @@ struct GameObj {
         self.store = store
         self.time = time
         self.addedByUser = addedByUser
+        self.playerNum = playerNum
         
         self.ref = nil
     }
@@ -44,6 +46,9 @@ struct GameObj {
         store = snapshotValue["store"] as! String
         time = snapshotValue["time"] as! String
         addedByUser = snapshotValue["addedByUser"] as! String
+        
+        playerNum = snapshotValue["playerNum"] as? Int ?? 0
+        
         ref = snapshot.ref
     }
     
@@ -53,7 +58,8 @@ struct GameObj {
             "game": game,
             "store": store,
             "time": time,
-            "addedByUser": addedByUser
+            "addedByUser": addedByUser,
+            "playerNum": playerNum
         ]
     }
 }
