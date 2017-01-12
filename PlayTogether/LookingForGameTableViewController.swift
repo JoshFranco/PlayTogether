@@ -56,6 +56,7 @@ class LookingForGameTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
     @IBAction func tempAddToDatabase(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Temp add to database",
                                       message: "Add an item to the database...",
@@ -133,11 +134,9 @@ extension LookingForGameTableViewController {
             let nav = self.navigationController
             //if let nav = self.navigationController{}
             
-            vc.game = gameObj.game
-            vc.user = gameObj.userName
-            vc.store = gameObj.store
-            vc.time = gameObj.time
-            
+            vc.gameObj = gameObj
+            vc.email = self.user.email
+                        
             nav?.pushViewController(vc, animated:true)
         }
     }

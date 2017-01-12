@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class DetailedGameViewController: UIViewController {
 
@@ -14,21 +15,29 @@ class DetailedGameViewController: UIViewController {
     @IBOutlet weak var gameLabel: UILabel!
     @IBOutlet weak var storeLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var acceptButt: UIButton!
     
-    var user = ""
-    var game = ""
-    var store = ""
-    var time = ""
+    let ref = FIRDatabase.database().reference(withPath: "game-objs")
+    let usersRef = FIRDatabase.database().reference(withPath: "online")
+    var userX: User!
+    var listOfPlayers:[String] = []
+    var gameObj: GameObj? = nil
+    
+    var email = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.tabBarController?.tabBar.isHidden = true
         
-        userLabel.text = user
-        gameLabel.text = game
-        storeLabel.text = store
-        timeLabel.text = time
+        userLabel.text = gameObj?.userName
+        gameLabel.text = gameObj?.game
+        storeLabel.text = gameObj?.store
+        timeLabel.text = gameObj?.time
+        
+        listOfPlayers = (gameObj?.playerList.components(separatedBy: "|"))!
+        
+        hasAccepted()
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,6 +46,24 @@ class DetailedGameViewController: UIViewController {
     }
     
     @IBAction func acceptButt(_ sender: UIButton) {
+        
+        let inc = (gameObj?.playerNum)! + 1
+        listOfPlayers.append(email)
+        let strOfPlayers = listOfPlayers.joined(separator: "|")
+            
+        gameObj?.ref?.updateChildValues(["playerNum": inc])
+        gameObj?.ref?.updateChildValues(["playerList": strOfPlayers])
+            
+        acceptButt.setTitle("Game Accepted =D", for: .normal)
+        acceptButt.isEnabled = false
+        
     }
-
+    
+    func hasAccepted(){
+        
+        if listOfPlayers.contains(email){
+            acceptButt.setTitle("Game Accepted =D", for: .normal)
+            acceptButt.isEnabled = false
+        }
+    }
 }
