@@ -66,7 +66,7 @@ class DetailedGameViewController: UIViewController {
     @IBAction func deleteButt(_ sender: UIButton) {
         print("DELETE")
         gameObj?.ref?.removeValue()
-        navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
     }
     
     func hasAccepted(){

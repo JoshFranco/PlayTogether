@@ -538,7 +538,9 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Km-Bd-y4f" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Event Locations" image="imageStore@1" id="F4F-ad-bMR"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hO7-XQ-9dp">
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hO7-XQ-9dp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -557,7 +559,9 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="irG-AC-Aiu" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Ongoing Events" image="imageGamers@1x" id="MWg-v1-kJo"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sHc-dZ-5Bq">
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sHc-dZ-5Bq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
