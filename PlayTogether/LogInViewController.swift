@@ -29,13 +29,11 @@ class LogInViewController: UIViewController {
         let imageData = try! Data(contentsOf: Bundle.main.url(forResource: "LoginGif", withExtension: "gif")!)
         self.imageView.image = UIImage.gif(data: imageData)
         
-        
         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
             if user != nil {
                 self.performSegue(withIdentifier: self.loginToApp, sender: nil)
             }
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,6 +44,17 @@ class LogInViewController: UIViewController {
     @IBAction func loginButtPush(_ sender: UIButton) {
         FIRAuth.auth()!.signIn(withEmail: emailTextField.text!,
                                password: passTextField.text!)
+        { user, error in
+            if error != nil{
+                let failAlert = UIAlertController(title: "Login Failed",
+                                                  message: "The password or email was incorrect",
+                                                  preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK",
+                                             style: .default)
+                failAlert.addAction(okAction)
+                self.present(failAlert, animated: true, completion: nil)
+            }
+        }
     }
     
     @IBAction func newUserButtPush(_ sender: UIButton) {
@@ -57,17 +66,35 @@ class LogInViewController: UIViewController {
         { action in
             let emailField = alert.textFields![0]
             let passField = alert.textFields![1]
+            let rePassField = alert.textFields![2]
             
-            FIRAuth
-                .auth()!
-                .createUser(
-                withEmail: emailField.text!,
-                password: passField.text!)
-            { user, error in
-                if error == nil {
+            if passField.text == rePassField.text {
+                FIRAuth.auth()!.createUser(withEmail: emailField.text!,
+                                           password: passField.text!)
+                { user, error in
+                    if error == nil {
                     FIRAuth.auth()!.signIn(withEmail: self.emailTextField.text!,
                                            password: self.passTextField.text!)
+                    }
+                    else {
+                        let failAlert = UIAlertController(title: "Failed to Register",
+                                                          message: "The email or password did not follow the correct format or the email is in use. \n The email must follow this format: example@example.com \n The Password must be at least 6 characters long ",
+                                                          preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK",
+                                                 style: .default)
+                        failAlert.addAction(okAction)
+                        self.present(failAlert, animated: true, completion: nil)
+                    }
                 }
+            }
+            else{
+                let failAlert = UIAlertController(title: "Passwords did not match",
+                                                  message: "The passwords did not match, please ensure both passwords match",
+                                                  preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK",
+                                             style: .default)
+                failAlert.addAction(okAction)
+                self.present(failAlert, animated: true, completion: nil)
             }
         }
         let cancelAction = UIAlertAction(title: "Cancel",
@@ -75,10 +102,13 @@ class LogInViewController: UIViewController {
         alert.addTextField { textEmail in
             textEmail.placeholder = "Enter your email"
         }
-        
         alert.addTextField { textPassword in
             textPassword.isSecureTextEntry = true
             textPassword.placeholder = "Enter your password"
+        }
+        alert.addTextField { textRePassword in
+            textRePassword.isSecureTextEntry = true
+            textRePassword.placeholder = "Retype your password"
         }
         
         alert.addAction(regAction)
@@ -86,7 +116,6 @@ class LogInViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
-    
 }//end of LogInVC
 
 extension LogInViewController: UITextFieldDelegate {
