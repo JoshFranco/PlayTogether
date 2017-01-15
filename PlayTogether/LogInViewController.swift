@@ -23,6 +23,13 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Setting background image
+        let backgroundImageView = UIImageView(image: UIImage(named: "MainPage.jpg"))
+        backgroundImageView.frame = view.frame
+        backgroundImageView.contentMode = .scaleAspectFill
+        view.addSubview(backgroundImageView)
+        view.sendSubview(toBack: backgroundImageView)
+        
         passTextField.isSecureTextEntry = true
         
         //Gif in the login menu
