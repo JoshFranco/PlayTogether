@@ -10,6 +10,18 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
+struct storeObj{
+    let storeName: String
+    let storeHours: String
+    let storeAdress: String
+    
+    init(Name: String, Hours: String, Adress: String){
+        self.storeName = Name
+        self.storeHours = Hours
+        self.storeAdress = Adress
+    }
+}
+
 class StoresTableViewController: UITableViewController {
     
     // MARK: - Properties
@@ -18,8 +30,18 @@ class StoresTableViewController: UITableViewController {
     let usersRef = FIRDatabase.database().reference(withPath: "online")
     var user: User!
     
+    var stores: [storeObj] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let s1 = storeObj(Name: "Omega Card Games", Hours: "12pm-10pm", Adress: "7610 Schomburg Rd #1, Columbus, GA 31909")
+        let s2 = storeObj(Name: "Dragons Eye Games", Hours: "12pm-8pm", Adress: "116 Riverstone Pkwy, Canton, GA 30114")
+        let s3 = storeObj(Name: "Dr. No's Comics & Games", Hours: "11am-8pm", Adress: "Blackwell Square Shopping Center, 104, 3372 Canton Rd, Marietta, GA 30066")
+        let s4 = storeObj(Name: "Titan Games & Comics", Hours: "11am-8pm", Adress: "2512 Cobb Pkwy SE, Smyrna, GA 30080")
+        let s5 = storeObj(Name: "Raven's Nest Games", Hours: "12pm-11pm", Adress: "688 Whitlock Ave NW #400, Marietta, GA 30064")
+        
+        stores.append(contentsOf: [s1,s2,s3,s4,s5])
         
         //set up a observe so we can read from firebase
         ref.queryOrdered(byChild: "game").observe(.value, with:
@@ -61,7 +83,8 @@ class StoresTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return objs.count
+        //return objs.count
+        return stores.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -71,8 +94,15 @@ class StoresTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StoreTableViewCell", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StoreTableViewCell", for: indexPath) as! StoreTableViewCell
+        let currentStore = stores[indexPath.row]
+        
+        cell.storeLabel?.text = currentStore.storeName
+        cell.gameLabel?.text = currentStore.storeAdress
+        cell.timeLabel?.text = currentStore.storeHours
+        
+        
+        /*
         if let infoCell = cell as? StoreTableViewCell {
             let gameObj = objs[indexPath.row]
             infoCell.storeLabel.text = gameObj.store
@@ -81,9 +111,21 @@ class StoresTableViewController: UITableViewController {
             
             return infoCell
             
-        }
+        }*/
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "addGame") as? AddStoreViewController {
+            let currentStore = stores[indexPath.row]
+            let nav = self.navigationController
+            
+            //vc.gameObj = gameObj
+            vc.store = currentStore
+            
+            nav?.pushViewController(vc, animated:true)
+        }
     }
     
     @IBAction func signOutButton(_ sender: UIBarButtonItem) {
@@ -109,50 +151,5 @@ class StoresTableViewController: UITableViewController {
         
         present(alert, animated: true, completion: nil)
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

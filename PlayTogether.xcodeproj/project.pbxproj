@@ -98,10 +98,10 @@
 		04031F3A1E253C3300DE4781 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0473B6681E1ED5DC007BA360 /* AppDelegate.swift */,
 				048DAB5B1E1EDB4D00D1EA0A /* StoresTableViewController.swift */,
-				04031F411E25920B00DE4781 /* StoresMapViewController.swift */,
 				04031F731E26FEF900DE4781 /* AddStoreViewController.swift */,
+				0473B6681E1ED5DC007BA360 /* AppDelegate.swift */,
+				04031F411E25920B00DE4781 /* StoresMapViewController.swift */,
 				0474EE721E24245F00C02AAF /* LogInViewController.swift */,
 				048DAB5D1E1EDB6D00D1EA0A /* LookingForGameTableViewController.swift */,
 				0474EEA31E27CBEC00C02AAF /* DetailedGameViewController.swift */,

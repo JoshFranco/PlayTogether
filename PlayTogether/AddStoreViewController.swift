@@ -17,14 +17,19 @@ class AddStoreViewController: UIViewController {
     @IBOutlet weak var storeLabel: UITextField!
     @IBOutlet weak var gameLabel: UITextField!
     @IBOutlet weak var timeLabel: UITextField!
+    @IBOutlet weak var adressLabel: UILabel!
     
     // MARK: - Properties
     let ref = FIRDatabase.database().reference(withPath: "game-objs")
     let usersRef = FIRDatabase.database().reference(withPath: "online")
     var user: User!
     
+    var store:storeObj? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        adressLabel.text = store?.storeName
         
         //set up user so that the email can be rerived from the firebase
         FIRAuth.auth()!.addStateDidChangeListener{
@@ -49,11 +54,11 @@ class AddStoreViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
-        else if (storeLabel.text == ""){
+        /*else if (storeLabel.text == ""){
             let alert = UIAlertController(title: "Post Error", message: "Please enter a game", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-        }
+        }*/
         else if (gameLabel.text == ""){
             let alert = UIAlertController(title: "Post Error", message: "Please enter a game", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -68,11 +73,40 @@ class AddStoreViewController: UIViewController {
             
             let gameObj = GameObj(userName: userNameLabel.text!,
                                   game: gameLabel.text!,
-                                  store: storeLabel.text!,
+                                  store: (store?.storeName)!,
                                   time: timeLabel.text!,
                                   addedByUser: self.user.email)
-            let gameObjRef = self.ref.child((userNameLabel.text?.lowercased())!)
-            gameObjRef.setValue(gameObj.toAnyObject())
+            
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                if snapshot.hasChild(self.userNameLabel.text!){
+                    print("user exists")
+                    let failAlert = UIAlertController(title: "Game Already Exists",
+                                                      message: "A Game with that Title already exists, plz change the username of the game",
+                                                      preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "OK",
+                                                 style: .default)
+                    failAlert.addAction(okAction)
+                    self.present(failAlert, animated: true, completion: nil)
+                }else{
+                    print("user does not exist")
+                    let gameObjRef = self.ref.child((self.userNameLabel.text?.lowercased())!)
+                    gameObjRef.setValue(gameObj.toAnyObject())
+                    let alert = UIAlertController(title: "Game has been created",
+                                                      message: "Your game has been created!!!",
+                                                      preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "OK", style: .default)
+                    { _ in
+                        _ = self.navigationController?.popViewController(animated: true)
+                        
+                    }
+                    alert.addAction(okAction)
+                    self.present(alert, animated: true, completion: nil)
+                    
+                }
+            })
+            
+            
+            
         }
     }
     
@@ -140,15 +174,4 @@ class AddStoreViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
