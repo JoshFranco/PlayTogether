@@ -28,6 +28,8 @@ class AddStoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tabBarController?.tabBar.isHidden = true
+        
         // Setting background image
         let backgroundImageView = UIImageView(image: UIImage(named: "Page.jpg"))
         backgroundImageView.frame = view.frame
