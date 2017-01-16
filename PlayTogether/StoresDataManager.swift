@@ -18,14 +18,11 @@ class StoresDataManager {
         }
         
         do{
-            //****************************************** Parsing Block ***************************************
-            // Generic data
+            // Parsing block
             let data = try Data(contentsOf: URL(fileURLWithPath: path), options: NSData.ReadingOptions.mappedIfSafe)
-            // Convert generic data to JSON
             let jsonData = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
-            //************************************************************************************************
             
-            
+            // Preparing the JSON retrieved data
             guard let locations = jsonData as? [[String: AnyObject]] else{
                 closure([])
                 return
@@ -43,12 +40,9 @@ class StoresDataManager {
                 guard let lat = coord.first,
                     let lon = coord.last
                     else{
-                        // in case coordinate array doesn't have objects
                         continue
                 }
                 
-                
-                // Converting Lat and Long Strings to Doubles
                 guard   let latD = Double(lat),
                     let lonD = Double(lon)
                     else{
@@ -56,9 +50,9 @@ class StoresDataManager {
                 }
                 
                 let coordinate = CLLocationCoordinate2D(latitude: latD, longitude: lonD)
-                
                 let storeLoc = StoreLocation(title: title, coordinate: coordinate)
                 
+                // Adding JSON retrieved data to storeLocations array
                 storeLocations.append(storeLoc)
             }
             
@@ -66,7 +60,6 @@ class StoresDataManager {
             return
             
         }catch{
-            // In case there is a parsing error, it just return an empty array
             closure([])
             return
         }

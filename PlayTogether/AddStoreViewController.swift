@@ -13,6 +13,7 @@ import FirebaseDatabase
 
 class AddStoreViewController: UIViewController {
 
+    // MARK: - Outputs
     @IBOutlet weak var userNameLabel: UITextField!
     @IBOutlet weak var gameLabel: UITextField!
     @IBOutlet weak var timeLabel: UITextField!
@@ -30,7 +31,7 @@ class AddStoreViewController: UIViewController {
         
         self.tabBarController?.tabBar.isHidden = true
         
-        // Setting background image
+        // Setting up background image
         let backgroundImageView = UIImageView(image: UIImage(named: "Page.jpg"))
         backgroundImageView.frame = view.frame
         backgroundImageView.contentMode = .scaleAspectFill
@@ -113,8 +114,9 @@ class AddStoreViewController: UIViewController {
         }
     }
     
+    // MARK: - Facebook functionality
     @IBAction func fbPost(_ sender: UIButton) {
-        
+
         if (gameLabel.text == "") {
             let alert = UIAlertController(title: "Post Error", message: "Please enter the Store and Game values", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -143,7 +145,9 @@ class AddStoreViewController: UIViewController {
         
     }
     
+    // MARK: - Twitter functionality
     @IBAction func twPost(_ sender: UIButton) {
+        
         if (gameLabel.text == "") {
             let alert = UIAlertController(title: "Post Error", message: "Please enter the Store and Game values", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -174,7 +178,6 @@ class AddStoreViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 }

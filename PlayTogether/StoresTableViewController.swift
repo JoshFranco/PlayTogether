@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
+// MARK: - Store Object
 struct storeObj{
     let storeName: String
     let storeHours: String
@@ -35,7 +36,7 @@ class StoresTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Setting background image
+        // Setting up background image
         let backgroundImageView = UIImageView(image: UIImage(named: "Page.jpg"))
         backgroundImageView.frame = view.frame
         backgroundImageView.contentMode = .scaleAspectFill
@@ -50,29 +51,12 @@ class StoresTableViewController: UITableViewController {
         
         stores.append(contentsOf: [s1,s2,s3,s4,s5])
         
-        //set up a observe so we can read from firebase
-        ref.queryOrdered(byChild: "game").observe(.value, with:
-            { snapshot in
-                var newObjs: [GameObj] = []
-                
-                for item in snapshot.children {
-                    let gameObj = GameObj(snapshot: item as! FIRDataSnapshot)
-                    newObjs.append(gameObj)
-                }
-                self.objs = newObjs
-                self.tableView.reloadData()
-        })
         
-        
-        //set up user so that the email can be rerived from the firebase
-        FIRAuth.auth()!.addStateDidChangeListener{
-            auth, user in
-            guard let user = user else { return }
-            self.user = User(authData: user)
-            let currentUserRef = self.usersRef.child(self.user.uid)
-            currentUserRef.setValue(self.user.email)
-            currentUserRef.onDisconnectRemoveValue()
-        }
+        /* Setting up Google places API
+         let acController = GMSAutocompleteViewController()
+         acController.delegate = self
+         present(acController, animated: true, completion: nil)
+        }*/
         
     }
     
@@ -82,19 +66,14 @@ class StoresTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        //return objs.count
         return stores.count
     }
     
@@ -149,5 +128,31 @@ class StoresTableViewController: UITableViewController {
         
         present(alert, animated: true, completion: nil)
     }
+    
+    // MARK: - Google places 
+    /*
+     extension ViewController: GMSAutocompleteViewControllerDelegate {
+     
+     // Handle the user's selection.
+     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+     print("Place name: \(place.name)")
+     print("Place address: \(place.formattedAddress)")
+     print("Place attributions: \(place.attributions)")
+     dismiss(animated: true, completion: nil)
+     }
+     
+     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+     // TODO: handle the error.
+     print("Error: \(error)")
+     dismiss(animated: true, completion: nil)
+     }
+     
+     // User cancelled the operation.
+     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+     print("Autocomplete was cancelled.")
+     dismiss(animated: true, completion: nil)
+     }
+     }
+     */
 
 }

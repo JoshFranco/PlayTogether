@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
+// MARK: - Store Location class
 class StoreLocation: NSObject,MKAnnotation {
     
     var title: String?
@@ -31,7 +32,7 @@ class StoresMapViewController: UIViewController, CLLocationManagerDelegate, MKMa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Setting background image
+        // Setting up background image
         let backgroundImageView = UIImageView(image: UIImage(named: "Page.jpg"))
         backgroundImageView.frame = view.frame
         backgroundImageView.contentMode = .scaleAspectFill
@@ -41,6 +42,7 @@ class StoresMapViewController: UIViewController, CLLocationManagerDelegate, MKMa
         mapView.delegate = self
         locationManager.delegate = self
         
+        // Getting locations from JSON file
         StoresDataManager.getLocation(closure: { locations in mapView.addAnnotations(locations)})
         checkLocationAuthorizationStatus()
         
@@ -106,16 +108,5 @@ class StoresMapViewController: UIViewController, CLLocationManagerDelegate, MKMa
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
