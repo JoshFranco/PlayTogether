@@ -149,7 +149,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Event Locations" id="DGf-pe-Wdz">
                         <barButtonItem key="leftBarButtonItem" image="logOffIcon@1" id="b3v-nU-Ykd">
-                            <color key="tintColor" red="0.78748923540115356" green="0.68159645795822144" blue="0.47207319736480713" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.67932557000000005" green="0.50278134689999998" blue="0.099135800630000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="signOutButton:" destination="FgZ-qz-rwl" id="aN4-Px-HWF"/>
                             </connections>
@@ -241,7 +241,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Post">
-                                    <color key="titleColor" red="0.78748923540115356" green="0.68159645795822144" blue="0.47207319736480713" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.67932557000000005" green="0.50278134689999998" blue="0.099135800630000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="addStoreButton:" destination="CBt-oK-d5x" eventType="touchUpInside" id="jKi-b3-hjA"/>
@@ -387,7 +387,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Ongoing Events" id="ziC-Vc-mTf">
                         <barButtonItem key="leftBarButtonItem" image="logOffIcon@1" id="s8D-g6-2yH">
-                            <color key="tintColor" red="0.78748923540115356" green="0.68159645795822144" blue="0.47207319736480713" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.67932557000000005" green="0.50278134689999998" blue="0.099135800630000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="signOutButton:" destination="66o-4Y-Mgs" id="DVy-Ui-qaB"/>
                             </connections>
@@ -472,7 +472,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Accept Request">
-                                    <color key="titleColor" red="0.78748923540115356" green="0.68159645795822144" blue="0.47207319736480713" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.67932557000000005" green="0.50278134689999998" blue="0.099135800630000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="acceptButt:" destination="5kM-hF-sGc" eventType="touchUpInside" id="f9f-FW-ZUT"/>
