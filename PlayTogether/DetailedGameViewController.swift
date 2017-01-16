@@ -28,6 +28,13 @@ class DetailedGameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Setting background image
+        let backgroundImageView = UIImageView(image: UIImage(named: "Page.jpg"))
+        backgroundImageView.frame = view.frame
+        backgroundImageView.contentMode = .scaleAspectFill
+        view.addSubview(backgroundImageView)
+        view.sendSubview(toBack: backgroundImageView)
 
         self.tabBarController?.tabBar.isHidden = true
         

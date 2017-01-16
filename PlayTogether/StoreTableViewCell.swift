@@ -16,7 +16,7 @@ class StoreTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.backgroundView = UIImageView(image: UIImage(named: "Page.jpg"))
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

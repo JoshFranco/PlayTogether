@@ -14,7 +14,6 @@ import FirebaseDatabase
 class AddStoreViewController: UIViewController {
 
     @IBOutlet weak var userNameLabel: UITextField!
-    @IBOutlet weak var storeLabel: UITextField!
     @IBOutlet weak var gameLabel: UITextField!
     @IBOutlet weak var timeLabel: UITextField!
     @IBOutlet weak var adressLabel: UILabel!
@@ -28,6 +27,13 @@ class AddStoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Setting background image
+        let backgroundImageView = UIImageView(image: UIImage(named: "Page.jpg"))
+        backgroundImageView.frame = view.frame
+        backgroundImageView.contentMode = .scaleAspectFill
+        view.addSubview(backgroundImageView)
+        view.sendSubview(toBack: backgroundImageView)
         
         adressLabel.text = store?.storeName
         
@@ -44,7 +50,7 @@ class AddStoreViewController: UIViewController {
 
     @IBAction func addStoreButton(_ sender: UIButton) {
         
-        if (userNameLabel.text == "" && storeLabel.text == "" && gameLabel.text == "" && timeLabel.text == "") {
+        if (userNameLabel.text == "" && gameLabel.text == "" && timeLabel.text == "") {
             let alert = UIAlertController(title: "Post Error", message: "Please enter the mandatory values", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -54,11 +60,6 @@ class AddStoreViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
-        /*else if (storeLabel.text == ""){
-            let alert = UIAlertController(title: "Post Error", message: "Please enter a game", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }*/
         else if (gameLabel.text == ""){
             let alert = UIAlertController(title: "Post Error", message: "Please enter a game", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -112,7 +113,7 @@ class AddStoreViewController: UIViewController {
     
     @IBAction func fbPost(_ sender: UIButton) {
         
-        if (storeLabel.text == "" || gameLabel.text == "") {
+        if (gameLabel.text == "") {
             let alert = UIAlertController(title: "Post Error", message: "Please enter the Store and Game values", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -120,7 +121,7 @@ class AddStoreViewController: UIViewController {
         else{
             if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook){
                 let fbController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-                fbController?.setInitialText("I will be playing " + gameLabel.text! + " at " + storeLabel.text!)
+                fbController?.setInitialText("I will be playing " + gameLabel.text! + " at " + (store?.storeName)!)
                 present(fbController!, animated: true, completion: nil)
             } else{
                 let alert = UIAlertController(title: "Accounts", message: "Please login to your facebook account", preferredStyle: .alert)
@@ -141,7 +142,7 @@ class AddStoreViewController: UIViewController {
     }
     
     @IBAction func twPost(_ sender: UIButton) {
-        if (storeLabel.text == "" || gameLabel.text == "") {
+        if (gameLabel.text == "") {
             let alert = UIAlertController(title: "Post Error", message: "Please enter the Store and Game values", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -149,7 +150,7 @@ class AddStoreViewController: UIViewController {
         else {
             if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter){
                 let tweetController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-                tweetController?.setInitialText("I will be playing " + gameLabel.text! + " at " + storeLabel.text!)
+                tweetController?.setInitialText("I will be playing " + gameLabel.text! + " at " + (store?.storeName)!)
                 present(tweetController!, animated: true, completion: nil)
             } else{
                 let alert = UIAlertController(title: "Accounts", message: "Please login to your twitter account", preferredStyle: .alert)

@@ -35,6 +35,13 @@ class StoresTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Setting background image
+        let backgroundImageView = UIImageView(image: UIImage(named: "Page.jpg"))
+        backgroundImageView.frame = view.frame
+        backgroundImageView.contentMode = .scaleAspectFill
+        view.addSubview(backgroundImageView)
+        view.sendSubview(toBack: backgroundImageView)
+        
         let s1 = storeObj(Name: "Omega Card Games", Hours: "12pm-10pm", Adress: "7610 Schomburg Rd #1, Columbus, GA 31909")
         let s2 = storeObj(Name: "Dragons Eye Games", Hours: "12pm-8pm", Adress: "116 Riverstone Pkwy, Canton, GA 30114")
         let s3 = storeObj(Name: "Dr. No's Comics & Games", Hours: "11am-8pm", Adress: "Blackwell Square Shopping Center, 104, 3372 Canton Rd, Marietta, GA 30066")

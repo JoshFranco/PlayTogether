@@ -21,6 +21,13 @@ class LookingForGameTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Setting background image
+        let backgroundImageView = UIImageView(image: UIImage(named: "Page.jpg"))
+        backgroundImageView.frame = view.frame
+        backgroundImageView.contentMode = .scaleAspectFill
+        view.addSubview(backgroundImageView)
+        view.sendSubview(toBack: backgroundImageView)
+        
         //set up a observe so we can read from firebase
         ref.queryOrdered(byChild: "game").observe(.value, with:
         { snapshot in

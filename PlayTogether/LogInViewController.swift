@@ -24,7 +24,7 @@ class LogInViewController: UIViewController {
         super.viewDidLoad()
         
         // Setting background image
-        let backgroundImageView = UIImageView(image: UIImage(named: "MainPage.jpg"))
+        let backgroundImageView = UIImageView(image: UIImage(named: "MainPage.png"))
         backgroundImageView.frame = view.frame
         backgroundImageView.contentMode = .scaleAspectFill
         view.addSubview(backgroundImageView)

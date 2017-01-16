@@ -28,7 +28,8 @@
 		048DAB5E1E1EDB6D00D1EA0A /* LookingForGameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048DAB5D1E1EDB6D00D1EA0A /* LookingForGameTableViewController.swift */; };
 		048DAB601E1EE9C000D1EA0A /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048DAB5F1E1EE9C000D1EA0A /* StoreTableViewCell.swift */; };
 		048DAB621E1EF16800D1EA0A /* GamersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048DAB611E1EF16800D1EA0A /* GamersTableViewCell.swift */; };
-		04DBF8FD1E2C2F9F00FCB58E /* MainPage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04DBF8FC1E2C2F9F00FCB58E /* MainPage.jpg */; };
+		04DBF9011E2C424500FCB58E /* MainPage.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DBF9001E2C424500FCB58E /* MainPage.png */; };
+		04DBF9031E2C45B400FCB58E /* Page.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04DBF9021E2C45B400FCB58E /* Page.jpg */; };
 		F62F40467AC46D3E1F974CB7 /* Pods_PlayTogether.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCDF495AFDF741DC5520864 /* Pods_PlayTogether.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +58,8 @@
 		048DAB5D1E1EDB6D00D1EA0A /* LookingForGameTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookingForGameTableViewController.swift; sourceTree = "<group>"; };
 		048DAB5F1E1EE9C000D1EA0A /* StoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
 		048DAB611E1EF16800D1EA0A /* GamersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamersTableViewCell.swift; sourceTree = "<group>"; };
-		04DBF8FC1E2C2F9F00FCB58E /* MainPage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MainPage.jpg; sourceTree = "<group>"; };
+		04DBF9001E2C424500FCB58E /* MainPage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainPage.png; sourceTree = "<group>"; };
+		04DBF9021E2C45B400FCB58E /* Page.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Page.jpg; sourceTree = "<group>"; };
 		37820384F16B9F5C539A0192 /* Pods-PlayTogether.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayTogether.release.xcconfig"; path = "Pods/Target Support Files/Pods-PlayTogether/Pods-PlayTogether.release.xcconfig"; sourceTree = "<group>"; };
 		9BCDF495AFDF741DC5520864 /* Pods_PlayTogether.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlayTogether.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA8458BB54086A094CD151B8 /* Pods-PlayTogether.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayTogether.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlayTogether/Pods-PlayTogether.debug.xcconfig"; sourceTree = "<group>"; };
@@ -100,9 +102,9 @@
 		04031F3A1E253C3300DE4781 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0473B6681E1ED5DC007BA360 /* AppDelegate.swift */,
 				048DAB5B1E1EDB4D00D1EA0A /* StoresTableViewController.swift */,
 				04031F731E26FEF900DE4781 /* AddStoreViewController.swift */,
-				0473B6681E1ED5DC007BA360 /* AppDelegate.swift */,
 				04031F411E25920B00DE4781 /* StoresMapViewController.swift */,
 				0474EE721E24245F00C02AAF /* LogInViewController.swift */,
 				048DAB5D1E1EDB6D00D1EA0A /* LookingForGameTableViewController.swift */,
@@ -158,7 +160,8 @@
 		0474EE6B1E241DDE00C02AAF /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				04DBF8FC1E2C2F9F00FCB58E /* MainPage.jpg */,
+				04DBF9001E2C424500FCB58E /* MainPage.png */,
+				04DBF9021E2C45B400FCB58E /* Page.jpg */,
 				0474EE6D1E241E9100C02AAF /* LoginGif.gif */,
 				0474EE9B1E267EAB00C02AAF /* jack@origin.png */,
 			);
@@ -255,11 +258,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0473B6761E1ED5DC007BA360 /* LaunchScreen.storyboard in Resources */,
+				04DBF9011E2C424500FCB58E /* MainPage.png in Resources */,
+				04DBF9031E2C45B400FCB58E /* Page.jpg in Resources */,
 				0474EE991E254D4C00C02AAF /* GoogleService-Info.plist in Resources */,
 				0473B6731E1ED5DC007BA360 /* Assets.xcassets in Resources */,
 				0474EE9C1E267EAB00C02AAF /* jack@origin.png in Resources */,
 				04031F721E26EF9500DE4781 /* Locations.json in Resources */,
-				04DBF8FD1E2C2F9F00FCB58E /* MainPage.jpg in Resources */,
 				0473B66E1E1ED5DC007BA360 /* Main.storyboard in Resources */,
 				0474EE6F1E241E9100C02AAF /* LoginGif.gif in Resources */,
 			);
