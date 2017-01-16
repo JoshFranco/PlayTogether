@@ -86,54 +86,6 @@ class LookingForGameTableViewController: UITableViewController {
         
         present(alert, animated: true, completion: nil)
     }
-    
-    
-    @IBAction func tempAddToDatabase(_ sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: "Temp add to database",
-                                      message: "Add an item to the database...",
-                                      preferredStyle: .alert)
-        let saveAction = UIAlertAction(title: "SAVE",
-                                       style: .default)
-        { _ in
-            
-            let userNameField = alert.textFields![0]
-            let gameField = alert.textFields![1]
-            let storeField = alert.textFields![2]
-            let tiemField = alert.textFields![3]
-            
-            print(self.user.email)
-            
-            let gameObj = GameObj(userName: userNameField.text!,
-                                  game: gameField.text!,
-                                  store: storeField.text!,
-                                  time: tiemField.text!,
-                                  addedByUser: self.user.email)
-            let gameObjRef = self.ref.child((userNameField.text?.lowercased())!)
-            gameObjRef.setValue(gameObj.toAnyObject())
-            
-        }
-        
-        let cancelAction = UIAlertAction(title: "CANCEL",
-                                         style: .default)
-        
-        alert.addTextField { textUserName in
-            textUserName.placeholder = "Enter your User Name"
-        }
-        alert.addTextField { textGame in
-            textGame.placeholder = "Enter the Game Title"
-        }
-        alert.addTextField { textStore in
-            textStore.placeholder = "Enter the Store Location"
-        }
-        alert.addTextField { textTime in
-            textTime.placeholder = "Enter the time of the game"
-        }
-        
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-        
-        present(alert, animated: true, completion: nil)
-    }
 }
 
 // MARK: - Table view data source

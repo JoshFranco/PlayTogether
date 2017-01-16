@@ -107,18 +107,6 @@ class StoresTableViewController: UITableViewController {
         cell.storeLabel?.text = currentStore.storeName
         cell.gameLabel?.text = currentStore.storeAdress
         cell.timeLabel?.text = currentStore.storeHours
-        
-        
-        /*
-        if let infoCell = cell as? StoreTableViewCell {
-            let gameObj = objs[indexPath.row]
-            infoCell.storeLabel.text = gameObj.store
-            infoCell.gameLabel.text = gameObj.game
-            infoCell.timeLabel.text = gameObj.time
-            
-            return infoCell
-            
-        }*/
 
         return cell
     }
@@ -128,7 +116,6 @@ class StoresTableViewController: UITableViewController {
             let currentStore = stores[indexPath.row]
             let nav = self.navigationController
             
-            //vc.gameObj = gameObj
             vc.store = currentStore
             
             nav?.pushViewController(vc, animated:true)

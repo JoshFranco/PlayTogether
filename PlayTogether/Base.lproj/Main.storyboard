@@ -154,12 +154,6 @@
                                 <action selector="signOutButton:" destination="FgZ-qz-rwl" id="aN4-Px-HWF"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="aKa-Q8-BI6">
-                            <color key="tintColor" red="0.78748923540115356" green="0.68159645795822144" blue="0.47207319736480713" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <segue destination="CBt-oK-d5x" kind="show" id="EaN-3t-z98"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IWU-xr-2l1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -368,7 +362,7 @@
                                             <color key="textColor" red="0.1072137995" green="0.50000152799999997" blue="0.56073524750000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="# of Players:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7l0-QI-MWk">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Players:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7l0-QI-MWk">
                                             <rect key="frame" x="203" y="7" width="101" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -396,11 +390,6 @@
                             <color key="tintColor" red="0.78748923540115356" green="0.68159645795822144" blue="0.47207319736480713" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="signOutButton:" destination="66o-4Y-Mgs" id="DVy-Ui-qaB"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="temp add" id="YNZ-a7-VYG">
-                            <connections>
-                                <action selector="tempAddToDatabase:" destination="66o-4Y-Mgs" id="y4x-mZ-7aH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
